@@ -1,12 +1,20 @@
-﻿// Napisz w Program.cs kod, w którym 
-// zadeklarujesz zmienną z imieniem
-// zmienną z płcią (dobrać zmienną)
-// zweryfikujesz dane i wyswietlisz kedem z komunikatow:
-// (1): "Kobieta poniżj 30 lat"
-// (2): "Ewa, lat 33"
-// (3): "Niepełnoletni mężczyzna"
-// --------------------------------
-// (mozna dodac swoje)
+﻿var imie = "Ewa";
+var isMale = false;
+var wiek = 33;
 
-// na koncu CTRL K D
-// save file, COMMIT stage, push....hub
+if (wiek < 30 && isMale == false)
+{
+    Console.WriteLine("Kobieta, poniżej lat 30");
+}
+else if (wiek == 33 && imie == "Ewa" && isMale == false)
+{
+    Console.WriteLine("Ewa, lat 33");
+}
+else if (wiek < 18 && isMale == true)
+{
+    Console.WriteLine("Niepełnoletni Mężczyzna");
+}
+else if (wiek == 46 && isMale == true && imie == "Przemek")
+{
+    Console.WriteLine("Przemek, lat 46");
+}
