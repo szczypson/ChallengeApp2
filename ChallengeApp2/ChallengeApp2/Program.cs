@@ -1,70 +1,58 @@
-﻿int number = 4566;
-string numberInString = number.ToString();
-char[] letters = numberInString.ToArray();
+﻿using ChallengeApp2;
 
-int counter0 = 0;
-int counter1 = 0;
-int counter2 = 0;
-int counter3 = 0;
-int counter4 = 0;
-int counter5 = 0;
-int counter6 = 0;
-int counter7 = 0;
-int counter8 = 0;
-int counter9 = 0;
+Employee pracownik1 = new Employee("Adam", "Gozdek", 33, 0);
+Employee pracownik2 = new Employee("Monika", "Kwiatek", 23, 0);
+Employee pracownik3 = new Employee("Zuzia", "Kowalska", 24, 0);
+Employee pracownik4 = new Employee("Damian", "Damianowski", 34, 0);
+Employee pracownik5 = new Employee("Przemek", "Szczypkowski", 46, 0);
 
-foreach (char letter in letters)
+pracownik1.AddPunkty(5);
+pracownik1.AddPunkty(2);
+pracownik1.AddPunkty(1);
+pracownik1.AddPunkty(2);
+pracownik1.AddPunkty(1);
+
+pracownik2.AddPunkty(2);
+pracownik2.AddPunkty(5);
+pracownik2.AddPunkty(9);
+pracownik2.AddPunkty(5);
+pracownik2.AddPunkty(9);
+
+pracownik3.AddPunkty(10);
+pracownik3.AddPunkty(1);
+pracownik3.AddPunkty(1);
+pracownik3.AddPunkty(1);
+pracownik3.AddPunkty(1);
+
+pracownik4.AddPunkty(6);
+pracownik4.AddPunkty(4);
+pracownik4.AddPunkty(7);
+pracownik4.AddPunkty(2);
+pracownik4.AddPunkty(9);
+
+pracownik5.AddPunkty(3);
+pracownik5.AddPunkty(2);
+pracownik5.AddPunkty(9);
+pracownik5.AddPunkty(9);
+pracownik5.AddPunkty(9);
+
+List<Employee> lista_pracownikow = new List<Employee>()
 {
-    if (letter == '0')
+pracownik1, pracownik2, pracownik3, pracownik4, pracownik5
+};
+
+int maxResult = -1;
+Employee userWithMaxResult = null;
+
+foreach (var pracownik in lista_pracownikow)
+{
+    if (pracownik.punkty > maxResult)
     {
-        counter0++;
-    }
-    else if (letter == '1')
-    {
-        counter1++;
-    }
-    else if (letter == '2')
-    {
-        counter2++;
-    }
-    else if (letter == '3')
-    {
-        counter3++;
-    }
-    else if (letter == '4')
-    {
-        counter4++;
-    }
-    else if (letter == '5')
-    {
-        counter5++;
-    }
-    else if (letter == '6')
-    {
-        counter6++;
-    }
-    else if (letter == '7')
-    {
-        counter7++;
-    }
-    else if (letter == '8')
-    {
-        counter8++;
-    }
-    else if (letter == '9')
-    {
-        counter9++;
+        maxResult = pracownik.punkty;
+        userWithMaxResult = pracownik;
     }
 }
 
-Console.WriteLine("Wyniki dla liczby: " + number);
-Console.WriteLine("0 => " + counter0);
-Console.WriteLine("1 => " + counter1);
-Console.WriteLine("2 => " + counter2);
-Console.WriteLine("3 => " + counter3);
-Console.WriteLine("4 => " + counter4);
-Console.WriteLine("5 => " + counter5);
-Console.WriteLine("6 => " + counter6);
-Console.WriteLine("7 => " + counter7);
-Console.WriteLine("8 => " + counter8);
-Console.WriteLine("9 => " + counter9);
+Console.WriteLine("Pracownik z najwyższą liczbą ocen to: ");
+Console.WriteLine(userWithMaxResult.Imię + " " + userWithMaxResult.Nazwisko);
+Console.WriteLine("Wiek: " + userWithMaxResult.Wiek + "  Punkty: " + userWithMaxResult.punkty);
